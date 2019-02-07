@@ -1,0 +1,14 @@
+server:
+  port: 8081
+  servlet:    session:      cookie:        name: UISESSION
+  
+security:  oauth2:        client:      client-id: test-client-id
+      client-secret: test-client-secret
+      access-token-uri: http://localhost:8080/oauth/token
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+      authentication-scheme: query
+#      pre-established-redirect-uri: http://localhost:8081/app1/callback
+#      use-current-uri: false
+    resource:
+      user-info-uri: http://localhost:8080/users/me
+      prefer-token-info: false      jwt:        key-uri: http://localhost:8080/oauth/token_key
