@@ -11,8 +11,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
+			.httpBasic().disable()
+			.csrf().disable()
 			.authorizeRequests()
-				.mvcMatchers("/", "/login**").permitAll()
-				.anyRequest().authenticated();
+				.antMatchers("/", "/login**").permitAll()
+				.anyRequest().authenticated()
+				.and()
+			.logout()
+				.logoutUrl("/logout")
+				.logoutSuccessUrl("http://localhost:8080/exit?redirect_uri=http://localhost:8081")
+				.permitAll();
 	}
 }

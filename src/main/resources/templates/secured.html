@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 th:text="${#authentication.name}">안녕</h1>
+	<h1 th:text="|${#authentication.name}, hello|">안녕</h1>
+	<a href="/" th:href="@{/}">Main</a>
 </body>
 </html>

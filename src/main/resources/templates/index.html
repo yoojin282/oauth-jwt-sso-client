@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/security">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -7,5 +7,6 @@
 <body>
 	<h1 >기본페이지</h1>
 	<a href="secured" th:href="@{/secured}">Secured</a>
+	<a sec:authorize="isAuthenticated()" href="/logout" th:href="@{/logout}">Logout</a>
 </body>
 </html>
